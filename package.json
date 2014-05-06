@@ -1,0 +1,33 @@
+{
+  "name": "gulp-stubcell",
+  "version": "0.0.1",
+  "description": "stub server for gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yosuke-furukawa/gulp-stubcell"
+  },
+  "keywords": [
+    "gulp",
+    "stubcell",
+    "stub",
+    "server"
+  ],
+  "author": "yosuke-furukawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yosuke-furukawa/gulp-stubcell/issues"
+  },
+  "homepage": "https://github.com/yosuke-furukawa/gulp-stubcell",
+  "dependencies": {
+    "gulp-util": "~2.2.14",
+    "stubcell": "~0.1.4"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "mocha": "~1.18.2"
+  }
+}
