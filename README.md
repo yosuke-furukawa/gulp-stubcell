@@ -18,7 +18,14 @@ var gulp = require('gulp'),
   stubcell = require('gulp-stubcell');
 
 gulp.task('stubcell', function() {
-  stubcell.start();
+  stubcell.start({
+    // entry yaml path, default is entry.yml
+    entry: 'entry.yml',
+    // dummy response base dir
+    basepath : '',
+    // stubcell port
+    port: 3000
+  });
 });
 
 gulp.task('default', ['stubcell']);
@@ -48,7 +55,14 @@ gulp.task('connect', function() {
 });
 
 gulp.task('stubcell', function() {
-  stubcell.start();
+  stubcell.start({
+    // entry yaml path, default is entry.yml
+    entry: 'entry.yml',
+    // dummy response base dir
+    basepath : '',
+    // stubcell port
+    port: 3000
+  });
 });
 
 gulp.task('default', ['connect', 'stubcell']);
