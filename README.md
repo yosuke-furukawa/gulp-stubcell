@@ -24,7 +24,14 @@ gulp.task('stubcell', function() {
     // dummy response base dir
     basepath : '',
     // stubcell port
-    port: 3000
+    port: 3000,
+    // show more info
+    debug: false,
+    // recording settings
+    record : {
+      // request delegate to
+      proxy : 'http://localhost:3001',
+    }
   });
 });
 
@@ -61,12 +68,16 @@ gulp.task('stubcell', function() {
     // dummy response base dir
     basepath : '',
     // stubcell port
-    port: 3000
+    port: 3000,
+    // recording settings
+    record : {
+      // request delegate to
+      proxy : 'http://localhost:3001',
+    }
   });
 });
 
 gulp.task('default', ['connect', 'stubcell']);
-
 
 gulp.task('default', ['start']);
 ```
