@@ -6,6 +6,7 @@ var defaults = {
   basepath : "",
   port  : 3000,
   keepalive : false,
+  record : {},
 };
 
 var server;
@@ -17,8 +18,14 @@ module.exports = {
     var basepath = config.basepath || defaults.basepath;
     var port = config.port || defaults.port;
     var keepalive = config.keepalive || defaults.keepalive;
+    var record = config.record || defaults.record;
+    var debug = config.debug || defaults.debug;
 
-    stubcell.loadEntry(entry, basepath);
+    stubcell.loadEntry(entry, {
+      basepath : basepath,
+      record : record,
+      debug : debug
+    });
     stub = stubcell.server();
     server = stub.listen(port, function() {
       gutil.log(gutil.colors.green("Server started listening on " + port));
