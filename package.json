@@ -24,7 +24,7 @@
   "homepage": "https://github.com/yosuke-furukawa/gulp-stubcell",
   "dependencies": {
     "gulp-util": "~2.2.14",
-    "stubcell": "~0.4.1"
+    "stubcell": "^0.5.1"
   },
   "devDependencies": {
     "expect.js": "~0.3.1",
