@@ -7,6 +7,7 @@ var defaults = {
   port  : 3000,
   keepalive : false,
   record : {},
+  looseCompare : false,
 };
 
 var server;
@@ -20,11 +21,13 @@ module.exports = {
     var keepalive = config.keepalive || defaults.keepalive;
     var record = config.record || defaults.record;
     var debug = config.debug || defaults.debug;
+    var looseCompare = config.looseCompare || defaults.looseCompare;
 
     stubcell.loadEntry(entry, {
       basepath : basepath,
       record : record,
-      debug : debug
+      debug : debug,
+      looseCompare: looseCompare
     });
     stub = stubcell.server();
     server = stub.listen(port, function() {
