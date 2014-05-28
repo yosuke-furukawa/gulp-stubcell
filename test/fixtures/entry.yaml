@@ -4,3 +4,9 @@
     method: GET
   response:
     status: 200
+-
+  request:
+    url: /base/hello
+    method: GET
+  response:
+    status: 200

@@ -1,50 +1,49 @@
-var expect = require('expect.js');
+var assert = require('power-assert');
 var http = require('http');
 var fs = require('fs');
 var gstubcell = require('../index');
 
 describe('test http request', function () {
-  it('should return 200 status code', function (done) {
-    gstubcell.start({
+  var server;
+  beforeEach(function(done) {
+    server = gstubcell.start({
       entry : 'test/fixtures/entry.yaml',
-      record : {
-        proxy : 'http://echo.jsontest.com'
-      },
+      debug: true,
+      record: {
+        proxy: "http://echo.jsontest.com"
+      }
     });
+    server.on("listening", done);
+  });
+  afterEach(function(done) {
+    server.on("close", done);
+    server.close();
+  });
+  it('should return 200 status code', function (done) {
     http.get("http://127.0.0.1:3000/test/abc", function(res) {
-      expect(res.statusCode).to.equal(200);
       var data = "";
       res.on("data", function(d){
         data += d;
       });
       res.on("end", function() {
         var jsonData = JSON.parse(data);
-        expect(jsonData.message).to.equal("Hello world");
-        gstubcell.stop();
+        assert.equal(jsonData.message, "Hello world");
         done();
       });
     });
   });
   it('should record hello world', function (done) {
-    gstubcell.start({
-      entry : 'test/fixtures/entry.yaml',
-      record : {
-        proxy : 'http://echo.jsontest.com'
-      },
-    });
     http.get("http://127.0.0.1:3000/hello/world", function(res) {
-      expect(res.statusCode).to.equal(200);
       var data = "";
       res.on("data", function(d){
         data += d;
       });
       res.on("end", function() {
         var jsonData = JSON.parse(data);
-        expect(jsonData.hello).to.equal("world");
+        assert.equal(jsonData.hello, "world");
         fs.readFile("test/fixtures/hello/world_get.json", function(err, data) {
-          expect(err).to.be(null);
-          expect(JSON.parse(data).hello).to.equal("world");
-          gstubcell.stop();
+          assert.equal(err, null);
+          assert.equal(JSON.parse(data).hello, "world");
           done();
         });
       });
