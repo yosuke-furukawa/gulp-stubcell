@@ -24,7 +24,7 @@ module.exports = {
     var looseCompare = config.looseCompare || defaults.looseCompare;
 
     stubcell.loadEntry(entry, {
-      basepath : basepath,
+      basePath : basepath,
       record : record,
       debug : debug,
       looseCompare: looseCompare
