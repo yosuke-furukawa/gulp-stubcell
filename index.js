@@ -24,7 +24,7 @@ module.exports = {
     var looseCompare = config.looseCompare || defaults.looseCompare;
 
     stubcell.loadEntry(entry, {
-      basePath : basepath,
+      basepath : basepath,
       record : record,
       debug : debug,
       looseCompare: looseCompare
@@ -34,6 +34,7 @@ module.exports = {
       gutil.log(gutil.colors.green("Server started listening on " + port));
       gutil.log(gutil.colors.green("Entry file : " + entry));
     });
+    return server;
   },
   stop : function() {
     if (!server) throw new gutil.PluginError('gulp-stubcell', 'server is not started');
