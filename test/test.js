@@ -10,7 +10,7 @@ describe('test http request', function () {
       entry : 'test/fixtures/entry.yaml',
       debug: true,
       record: {
-        proxy: "http://echo.jsontest.com"
+        target: "http://echo.jsontest.com"
       }
     });
     server.on("listening", done);
