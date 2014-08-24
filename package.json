@@ -1,6 +1,6 @@
 {
   "name": "gulp-stubcell",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "stub server for gulp",
   "main": "index.js",
   "scripts": {
